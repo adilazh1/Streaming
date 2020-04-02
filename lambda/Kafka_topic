@@ -1,0 +1,15 @@
+
+** Iniciar Kafka y zookeeper. Adaptar el script lambda.sh
+source ./lambda.sh
+
+** Crear el tópico twitter con replicación=1 y particiones=1 
+/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic twitter
+
+** Ver que corren en segundo plano dos jobs, kafka y zookeeper
+jobs
+
+** iniciar mongodb
+mongod --dbpath /home/cloudera/data/db/ &
+
+** En el progrma, usamos DatagramSocket que emite y escucha en el puerto 4444, el seguitne comando abre dicho puerto
+sudo iptables -A INPUT -p tcp -d 0/0 -s 0/0 --dport 4444 -j ACCEPT 
