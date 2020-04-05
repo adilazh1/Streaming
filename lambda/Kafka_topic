@@ -11,5 +11,5 @@ jobs
 ** iniciar mongodb
 mongod --dbpath /home/cloudera/data/db/ &
 
-** En el progrma, usamos DatagramSocket que emite y escucha en el puerto 4444, el seguitne comando abre dicho puerto
+** En el progrma, usamos DatagramSocket que emite y escucha en el puerto 4444, el siguiente comando abre dicho puerto
 sudo iptables -A INPUT -p tcp -d 0/0 -s 0/0 --dport 4444 -j ACCEPT 
